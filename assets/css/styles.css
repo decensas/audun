@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap");
 
 :root {
-  --bg: #f5f1ea;
-  --bg-deep: #0f1c1b;
-  --surface: #ffffff;
-  --surface-alt: #f0e8dd;
-  --ink: #0f1c1b;
-  --ink-soft: #4a5a57;
-  --accent: #e46a3b;
-  --accent-2: #9ed6c1;
-  --border: #d9d0c4;
-  --shadow: 0 20px 60px rgba(15, 28, 27, 0.15);
+  --bg: #0b1114;
+  --bg-deep: #05090b;
+  --surface: #10181c;
+  --surface-alt: #131e23;
+  --ink: #f0f4f2;
+  --ink-soft: #aab6b1;
+  --accent: #ff7a4a;
+  --accent-2: #7fd3b8;
+  --border: #233038;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
 }
 
 * {
@@ -21,7 +21,10 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background: radial-gradient(circle at top, #f9f5ef 0%, #f1e7da 45%, #efe1d0 100%);
+  background:
+    radial-gradient(circle at top, rgba(255, 122, 74, 0.15) 0%, rgba(11, 17, 20, 0.2) 40%),
+    radial-gradient(circle at 20% 20%, rgba(127, 211, 184, 0.12) 0%, rgba(11, 17, 20, 0.4) 45%),
+    var(--bg);
   color: var(--ink);
   line-height: 1.6;
 }
@@ -47,7 +50,7 @@ a {
 .site-header {
   position: sticky;
   top: 0;
-  background: rgba(245, 241, 234, 0.92);
+  background: rgba(11, 17, 20, 0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   z-index: 10;
@@ -71,8 +74,8 @@ a {
   width: 40px;
   height: 40px;
   border-radius: 14px;
-  background: var(--ink);
-  color: #f6f0e8;
+  background: var(--accent);
+  color: #0b1114;
   display: grid;
   place-items: center;
   font-weight: 700;
@@ -110,6 +113,7 @@ a {
   display: none;
   border: 1px solid var(--border);
   background: var(--surface);
+  color: var(--ink);
   border-radius: 999px;
   padding: 8px 14px;
   font-weight: 600;
@@ -164,13 +168,14 @@ a {
 }
 
 .button.primary {
-  background: var(--ink);
-  color: #f6f0e8;
+  background: var(--accent);
+  color: #0b1114;
   box-shadow: var(--shadow);
 }
 
 .button.ghost {
   border-color: var(--ink);
+  color: var(--ink);
 }
 
 .button:hover {
@@ -218,7 +223,7 @@ a {
 .orb-one {
   width: 220px;
   height: 220px;
-  background: radial-gradient(circle, #ffe6d8, #e46a3b);
+  background: radial-gradient(circle, rgba(255, 122, 74, 0.9), rgba(11, 17, 20, 0.4));
   top: 10px;
   right: 20px;
 }
@@ -226,13 +231,13 @@ a {
 .orb-two {
   width: 180px;
   height: 180px;
-  background: radial-gradient(circle, #d7f0e6, #9ed6c1);
+  background: radial-gradient(circle, rgba(127, 211, 184, 0.9), rgba(11, 17, 20, 0.4));
   bottom: 20px;
   left: 10px;
 }
 
 .grid-card {
-  background: rgba(255, 255, 255, 0.86);
+  background: rgba(16, 24, 28, 0.9);
   padding: 24px;
   border-radius: 20px;
   border: 1px solid var(--border);
@@ -257,7 +262,7 @@ a {
 .mini-bars span {
   display: block;
   width: 16px;
-  background: var(--ink);
+  background: var(--accent-2);
   border-radius: 6px 6px 2px 2px;
 }
 
@@ -287,17 +292,17 @@ a {
   border-radius: 18px;
   padding: 22px;
   border: 1px solid var(--border);
-  box-shadow: 0 10px 30px rgba(15, 28, 27, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .accent {
   background: var(--bg-deep);
-  color: #f6f0e8;
+  color: var(--ink);
 }
 
 .accent .lead,
 .accent p {
-  color: #e8ddd0;
+  color: var(--ink-soft);
 }
 
 .split {
@@ -308,8 +313,8 @@ a {
 }
 
 .panel {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(16, 24, 28, 0.85);
+  border: 1px solid var(--border);
   padding: 26px;
   border-radius: 18px;
 }
@@ -373,13 +378,13 @@ a {
 .price-card {
   border-radius: 16px;
   padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  background: rgba(16, 24, 28, 0.7);
 }
 
 .price-card.highlight {
-  background: rgba(228, 106, 59, 0.2);
-  border-color: rgba(228, 106, 59, 0.6);
+  background: rgba(255, 122, 74, 0.18);
+  border-color: rgba(255, 122, 74, 0.6);
 }
 
 .price-title {
@@ -411,6 +416,8 @@ a {
   padding: 10px 12px;
   border-radius: 10px;
   border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--ink);
   font-family: inherit;
 }
 
@@ -421,7 +428,7 @@ a {
 
 .site-footer {
   background: var(--bg-deep);
-  color: #f6f0e8;
+  color: var(--ink);
   padding: 40px 0;
 }
 
@@ -438,7 +445,7 @@ a {
 
 .site-footer a {
   display: block;
-  color: #f6f0e8;
+  color: var(--ink);
   margin-top: 6px;
 }
 
