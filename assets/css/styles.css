@@ -7,8 +7,8 @@
   --surface-alt: #131e23;
   --ink: #f0f4f2;
   --ink-soft: #aab6b1;
-  --accent: #ff7a4a;
-  --accent-2: #7fd3b8;
+  --accent: #3f7bff;
+  --accent-2: #2ec1ff;
   --border: #233038;
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
 }
@@ -22,9 +22,9 @@
 body {
   font-family: "Inter", sans-serif;
   background:
-    radial-gradient(circle at top, rgba(255, 122, 74, 0.15) 0%, rgba(11, 17, 20, 0.2) 40%),
-    radial-gradient(circle at 20% 20%, rgba(127, 211, 184, 0.12) 0%, rgba(11, 17, 20, 0.4) 45%),
-    var(--bg);
+    radial-gradient(circle at top, rgba(64, 115, 255, 0.25) 0%, rgba(11, 17, 20, 0.2) 40%),
+    radial-gradient(circle at 20% 20%, rgba(46, 180, 255, 0.18) 0%, rgba(11, 17, 20, 0.4) 45%),
+    linear-gradient(180deg, #0b1c2b 0%, #09131b 100%);
   color: var(--ink);
   line-height: 1.6;
 }
@@ -75,7 +75,7 @@ a {
   height: 40px;
   border-radius: 14px;
   background: var(--accent);
-  color: #0b1114;
+  color: #f2f6ff;
   display: grid;
   place-items: center;
   font-weight: 700;
@@ -223,7 +223,7 @@ a {
 .orb-one {
   width: 220px;
   height: 220px;
-  background: radial-gradient(circle, rgba(255, 122, 74, 0.9), rgba(11, 17, 20, 0.4));
+  background: radial-gradient(circle, rgba(63, 123, 255, 0.9), rgba(11, 17, 20, 0.4));
   top: 10px;
   right: 20px;
 }
@@ -231,7 +231,7 @@ a {
 .orb-two {
   width: 180px;
   height: 180px;
-  background: radial-gradient(circle, rgba(127, 211, 184, 0.9), rgba(11, 17, 20, 0.4));
+  background: radial-gradient(circle, rgba(46, 193, 255, 0.9), rgba(11, 17, 20, 0.4));
   bottom: 20px;
   left: 10px;
 }
@@ -383,8 +383,8 @@ a {
 }
 
 .price-card.highlight {
-  background: rgba(255, 122, 74, 0.18);
-  border-color: rgba(255, 122, 74, 0.6);
+  background: rgba(63, 123, 255, 0.18);
+  border-color: rgba(63, 123, 255, 0.6);
 }
 
 .price-title {
