@@ -1,10 +1,15 @@
-const LOCATION_NAME = "Lierskogen";
 const GEO_URL = "https://geocoding-api.open-meteo.com/v1/search";
 const FORECAST_URL = "https://api.open-meteo.com/v1/forecast";
+const LOCATIONS = {
+  tonsberg: "Tønsberg",
+  lierskogen: "Lierskogen"
+};
 
 const statusEl = document.getElementById("weather-status");
 const bodyEl = document.getElementById("weather-body");
 const refreshButton = document.getElementById("refresh-weather");
+const locationSelect = document.getElementById("weather-location");
+const titleEl = document.getElementById("weather-title");
 
 const weatherDescriptions = {
   0: "Klar himmel",
@@ -55,6 +60,19 @@ function clearTable() {
   bodyEl.innerHTML = "";
 }
 
+function getSelectedLocationName() {
+  if (!locationSelect) {
+    return LOCATIONS.tonsberg;
+  }
+  return LOCATIONS[locationSelect.value] || LOCATIONS.tonsberg;
+}
+
+function updateTitle(locationName) {
+  if (titleEl) {
+    titleEl.textContent = `Vær for ${locationName}`;
+  }
+}
+
 function addRow(day) {
   const row = document.createElement("tr");
   row.innerHTML = `
@@ -68,17 +86,19 @@ function addRow(day) {
 }
 
 async function fetchWeather() {
+  const locationName = getSelectedLocationName();
+  updateTitle(locationName);
   setStatus("Henter værdata...");
   clearTable();
 
   try {
     const geoResponse = await fetch(
-      `${GEO_URL}?name=${encodeURIComponent(LOCATION_NAME)}&count=1&language=nb&countryCode=NO`
+      `${GEO_URL}?name=${encodeURIComponent(locationName)}&count=1&language=nb&countryCode=NO`
     );
     const geoData = await geoResponse.json();
 
     if (!geoData.results || geoData.results.length === 0) {
-      setStatus("Fant ingen lokasjon for Lierskogen.", true);
+      setStatus(`Fant ingen lokasjon for ${locationName}.`, true);
       return;
     }
 
@@ -106,6 +126,9 @@ async function fetchWeather() {
 
 if (refreshButton) {
   refreshButton.addEventListener("click", fetchWeather);
+}
+if (locationSelect) {
+  locationSelect.addEventListener("change", fetchWeather);
 }
 
 fetchWeather();
