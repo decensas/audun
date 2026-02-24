@@ -484,6 +484,12 @@ a {
   padding: 10px 12px;
 }
 
+#refresh-weather.button.ghost {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #0b1114;
+}
+
 .weather-note {
   color: var(--ink-soft);
   font-size: 0.9rem;
