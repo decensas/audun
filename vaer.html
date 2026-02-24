@@ -4,97 +4,64 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vær - Decens IT</title>
-  <meta name="description" content="Vær for Tønsberg og Lierskogen fra i dag og en uke frem." />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta name="description" content="Sammenligning av værvarsel for Tønsberg og Lierskogen de neste 6 dagene." />
+  <link rel="stylesheet" href="assets/css/vaer-6dager.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a class="brand" href="index.html">
-        <span class="brand-mark">D</span>
-        <span class="brand-text">Decens IT</span>
-      </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
-        Meny
-      </button>
-      <nav id="primary-nav" class="nav">
-        <a class="nav-link" href="index.html">Hjem</a>
-        <a class="nav-link" href="tjenester.html">Tjenester</a>
-        <a class="nav-link" href="om-oss.html">Om oss</a>
-        <a class="nav-link" href="kontakt.html">Kontakt</a>
-        <a class="nav-link is-active" href="vaer.html">Vær</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="page-hero">
-      <div class="container">
-        <p class="eyebrow">Vær</p>
-        <h1 id="weather-title">Vær for Tønsberg</h1>
-        <p class="lead">Oppdatert daglig vær-oversikt for i dag og 7 dager frem.</p>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Værvarsel</p>
+      <h1 id="page-title">Lierskogen</h1>
+      <p class="lead">Sammenligning av værdata for de neste 6 dagene fra Yr.no (MET) og Weather.js (Open-Meteo).</p>
+      <div class="controls">
+        <label for="city-select">By</label>
+        <select id="city-select">
+          <option value="tonsberg">Tønsberg</option>
+          <option value="lierskogen" selected>Lierskogen</option>
+        </select>
+        <button id="refresh-btn" class="refresh-btn" type="button">Oppdater værdata</button>
       </div>
+      <p id="status" class="status">Henter værdata...</p>
     </section>
 
-    <section class="section reveal">
-      <div class="container">
-        <div class="weather-card">
-          <div class="weather-header">
-            <div>
-              <h2>Vær de neste 8 dagene</h2>
-              <p class="weather-note">Kilde: Open-Meteo (automatisk oppdatert).</p>
-            </div>
-            <div class="weather-actions">
-              <label for="weather-location">Sted</label>
-              <select id="weather-location">
-                <option value="tonsberg">Tønsberg</option>
-                <option value="lierskogen">Lierskogen</option>
-              </select>
-              <button class="button ghost" id="refresh-weather" type="button">Oppdater</button>
-            </div>
-          </div>
-          <div id="weather-status" class="weather-status">Henter værdata...</div>
-          <div class="weather-table-wrap">
-            <table class="weather-table" aria-describedby="weather-status">
-              <thead>
-                <tr>
-                  <th>Dato</th>
-                  <th>Tilstand</th>
-                  <th>Maks (C)</th>
-                  <th>Min (C)</th>
-                  <th>Nedbør (mm)</th>
-                </tr>
-              </thead>
-              <tbody id="weather-body"></tbody>
-            </table>
-          </div>
+    <section class="grid" aria-live="polite">
+      <article class="card">
+        <h2 id="yr-title">Yr.no (MET)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Dag</th>
+                <th>Vær</th>
+                <th>Maks</th>
+                <th>Min</th>
+                <th>Nedbør</th>
+              </tr>
+            </thead>
+            <tbody id="yr-body"></tbody>
+          </table>
         </div>
-      </div>
+      </article>
+      <article class="card">
+        <h2 id="openmeteo-title">Weather.js (Open-Meteo)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Dag</th>
+                <th>Vær</th>
+                <th>Maks</th>
+                <th>Min</th>
+                <th>Nedbør</th>
+              </tr>
+            </thead>
+            <tbody id="openmeteo-body"></tbody>
+          </table>
+        </div>
+      </article>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div>
-        <p class="brand-text">Decens IT</p>
-        <p>Strategi, drift og sikkerhet for bedrifter i vekst.</p>
-      </div>
-      <div>
-        <p class="footer-title">Kontakt</p>
-        <p>kontakt@dittfirma.no</p>
-        <p>+47 000 00 000</p>
-      </div>
-      <div>
-        <p class="footer-title">Navigasjon</p>
-        <a href="index.html">Hjem</a>
-        <a href="tjenester.html">Tjenester</a>
-        <a href="om-oss.html">Om oss</a>
-        <a href="kontakt.html">Kontakt</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/weather.js"></script>
+  <script src="assets/js/vaer-6dager.js"></script>
 </body>
 </html>
