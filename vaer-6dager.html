@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vær 6 dager - Tønsberg og Lierskogen</title>
+  <meta name="description" content="Værvarsel for Tønsberg og Lierskogen de neste 6 dagene." />
+  <link rel="stylesheet" href="assets/css/vaer-6dager.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Værvarsel</p>
+      <h1 id="page-title">Lierskogen</h1>
+      <p class="lead">Sammenligning av værdata for de neste 6 dagene fra Yr.no (MET) og Weather.js (Open-Meteo).</p>
+      <div class="controls">
+        <label for="city-select">By</label>
+        <select id="city-select">
+          <option value="tonsberg">Tønsberg</option>
+          <option value="lierskogen" selected>Lierskogen</option>
+        </select>
+        <button id="refresh-btn" class="refresh-btn" type="button">Oppdater værdata</button>
+      </div>
+      <p id="status" class="status">Henter værdata...</p>
+    </section>
+
+    <section class="grid" aria-live="polite">
+      <article class="card">
+        <h2 id="yr-title">Yr.no (MET)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Dag</th>
+                <th>Vær</th>
+                <th>Maks</th>
+                <th>Min</th>
+                <th>Nedbør</th>
+              </tr>
+            </thead>
+            <tbody id="yr-body"></tbody>
+          </table>
+        </div>
+      </article>
+      <article class="card">
+        <h2 id="openmeteo-title">Weather.js (Open-Meteo)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Dag</th>
+                <th>Vær</th>
+                <th>Maks</th>
+                <th>Min</th>
+                <th>Nedbør</th>
+              </tr>
+            </thead>
+            <tbody id="openmeteo-body"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="assets/js/vaer-6dager.js"></script>
+</body>
+</html>
