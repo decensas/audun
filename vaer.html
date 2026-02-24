@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kontakt - Decens IT</title>
-  <meta name="description" content="Kontakt Decens IT for behovsmote, tilbud eller support." />
+  <title>Vær - Decens IT</title>
+  <meta name="description" content="Vær for Lierskogen fra i dag og en uke frem." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -21,8 +21,8 @@
         <a class="nav-link" href="index.html">Hjem</a>
         <a class="nav-link" href="tjenester.html">Tjenester</a>
         <a class="nav-link" href="om-oss.html">Om oss</a>
-        <a class="nav-link is-active" href="kontakt.html">Kontakt</a>
-        <a class="nav-link" href="vaer.html">Vær</a>
+        <a class="nav-link" href="kontakt.html">Kontakt</a>
+        <a class="nav-link is-active" href="vaer.html">Vær</a>
       </nav>
     </div>
   </header>
@@ -30,39 +30,37 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <p class="eyebrow">Kontakt</p>
-        <h1>La oss finne riktig losning sammen</h1>
-        <p class="lead">Send oss en kort beskrivelse av behovet, sa svarer vi raskt.</p>
+        <p class="eyebrow">Vær</p>
+        <h1>Vær for Lierskogen</h1>
+        <p class="lead">Oppdatert daglig vær-oversikt for i dag og 7 dager frem.</p>
       </div>
     </section>
 
     <section class="section reveal">
-      <div class="container split">
-        <form class="contact-form">
-          <label>
-            Navn
-            <input type="text" name="name" placeholder="Ditt navn" required />
-          </label>
-          <label>
-            E-post
-            <input type="email" name="email" placeholder="navn@firma.no" required />
-          </label>
-          <label>
-            Telefon
-            <input type="tel" name="phone" placeholder="+47 000 00 000" />
-          </label>
-          <label>
-            Hvordan kan vi hjelpe?
-            <textarea name="message" rows="5" placeholder="Fortell kort om behovet" required></textarea>
-          </label>
-          <button class="button primary" type="submit">Send foresporsel</button>
-          <p class="form-note">Skjemaet er statisk. Bytt til ekte innsendelse nar dere publiserer.</p>
-        </form>
-        <div class="panel">
-          <p class="panel-title">Direkte kontakt</p>
-          <p>kontakt@dittfirma.no</p>
-          <p>+47 000 00 000</p>
-          <p>Man-fre 08:00-16:00</p>
+      <div class="container">
+        <div class="weather-card">
+          <div class="weather-header">
+            <div>
+              <h2>Vær de neste 8 dagene</h2>
+              <p class="weather-note">Kilde: Open-Meteo (automatisk oppdatert).</p>
+            </div>
+            <button class="button ghost" id="refresh-weather" type="button">Oppdater</button>
+          </div>
+          <div id="weather-status" class="weather-status">Henter værdata...</div>
+          <div class="weather-table-wrap">
+            <table class="weather-table" aria-describedby="weather-status">
+              <thead>
+                <tr>
+                  <th>Dato</th>
+                  <th>Tilstand</th>
+                  <th>Maks (C)</th>
+                  <th>Min (C)</th>
+                  <th>Nedbør (mm)</th>
+                </tr>
+              </thead>
+              <tbody id="weather-body"></tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
@@ -84,10 +82,12 @@
         <a href="index.html">Hjem</a>
         <a href="tjenester.html">Tjenester</a>
         <a href="om-oss.html">Om oss</a>
+        <a href="kontakt.html">Kontakt</a>
       </div>
     </div>
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/weather.js"></script>
 </body>
 </html>
