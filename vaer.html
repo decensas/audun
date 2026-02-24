@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vær - Decens IT</title>
-  <meta name="description" content="Vær for Lierskogen fra i dag og en uke frem." />
+  <meta name="description" content="Vær for Tønsberg og Lierskogen fra i dag og en uke frem." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -31,7 +31,7 @@
     <section class="page-hero">
       <div class="container">
         <p class="eyebrow">Vær</p>
-        <h1>Vær for Lierskogen</h1>
+        <h1 id="weather-title">Vær for Tønsberg</h1>
         <p class="lead">Oppdatert daglig vær-oversikt for i dag og 7 dager frem.</p>
       </div>
     </section>
@@ -44,7 +44,14 @@
               <h2>Vær de neste 8 dagene</h2>
               <p class="weather-note">Kilde: Open-Meteo (automatisk oppdatert).</p>
             </div>
-            <button class="button ghost" id="refresh-weather" type="button">Oppdater</button>
+            <div class="weather-actions">
+              <label for="weather-location">Sted</label>
+              <select id="weather-location">
+                <option value="tonsberg">Tønsberg</option>
+                <option value="lierskogen">Lierskogen</option>
+              </select>
+              <button class="button ghost" id="refresh-weather" type="button">Oppdater</button>
+            </div>
           </div>
           <div id="weather-status" class="weather-status">Henter værdata...</div>
           <div class="weather-table-wrap">
